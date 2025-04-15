@@ -61,6 +61,8 @@ function AuthLayout({
     <div className="relative flex min-h-screen flex-col bg-white dark:bg-gray-900">
       <Banner />
       <BlinkAnimation active={isFetching}>
+
+        {/* Original logo */}
         <div className="mt-6 h-10 w-full bg-cover">
           <img
             src="/assets/logo.svg"
@@ -68,6 +70,20 @@ function AuthLayout({
             alt={localize('com_ui_logo', { 0: startupConfig?.appTitle ?? 'LibreChat' })}
           />
         </div>
+
+        {/*
+          Custom banner.
+          Uncomment the below code and comment the above code to use.
+          Change the src and adjust the height and width as needed.
+        */}
+        {/* <div className="mt-6 h-10 w-full bg-cover">
+          <img
+            src="/assets/<YOUR BANNER>.png"
+            style={{ height: '80px', width: '150%' }}
+            className="object-contain"
+          />
+        </div> */}
+
       </BlinkAnimation>
       <DisplayError />
       <div className="absolute bottom-0 left-0 md:m-4">
