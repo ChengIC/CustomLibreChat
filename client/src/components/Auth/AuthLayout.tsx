@@ -62,7 +62,7 @@ function AuthLayout({
       <Banner />
       <BlinkAnimation active={isFetching}>
 
-        {/* Original logo */}
+        {/* Original banner */}
         <div className="mt-6 h-10 w-full bg-cover">
           <img
             src="/assets/logo.svg"
