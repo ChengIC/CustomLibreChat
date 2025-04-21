@@ -63,26 +63,26 @@ function AuthLayout({
       <BlinkAnimation active={isFetching}>
 
         {/* Original banner */}
-        <div className="mt-6 h-10 w-full bg-cover">
+        {/* <div className="mt-6 h-10 w-full bg-cover">
           <img
             src="/assets/logo.svg"
             className="h-full w-full object-contain"
             alt={localize('com_ui_logo', { 0: startupConfig?.appTitle ?? 'LibreChat' })}
           />
-        </div>
+        </div> */}
 
         {/*
           Custom banner.
           Uncomment the below code and comment the above code to use.
           Change the src and adjust the height and width as needed.
         */}
-        {/* <div className="mt-6 h-10 w-full bg-cover">
+        <div className="mt-5 h-10 w-full bg-cover">
           <img
-            src="/assets/<YOUR BANNER>.png"
-            style={{ height: '80px', width: '150%' }}
+            src="/assets/banner-marvin.svg"
+            style={{ height: '150px', width: '200%' }}
             className="object-contain"
           />
-        </div> */}
+        </div>
 
       </BlinkAnimation>
       <DisplayError />

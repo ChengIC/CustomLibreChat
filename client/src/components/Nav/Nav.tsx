@@ -21,6 +21,8 @@ import NavToggle from './NavToggle';
 import NewChat from './NewChat';
 import { cn } from '~/utils';
 import store from '~/store';
+import MenuSettings from './MenuSettings';
+import { DataIcon } from '~/components/svg';
 
 const Nav = ({
   navVisible,
@@ -37,6 +39,7 @@ const Nav = ({
   const isSmallScreen = useMediaQuery('(max-width: 768px)');
   const [newUser, setNewUser] = useLocalStorage('newUser', true);
   const [isToggleHovering, setIsToggleHovering] = useState(false);
+  const [isMenuSettingsOpen, setIsMenuSettingsOpen] = useState(false);
 
   const hasAccessToBookmarks = useHasAccess({
     permissionType: PermissionTypes.BOOKMARKS,
@@ -87,7 +90,7 @@ const Nav = ({
     hasNextPage: searchQuery ? searchQueryRes?.hasNextPage : hasNextPage,
     fetchNextPage: searchQuery ? searchQueryRes?.fetchNextPage : fetchNextPage,
     isFetchingNextPage: searchQuery
-      ? searchQueryRes?.isFetchingNextPage ?? false
+      ? (searchQueryRes?.isFetchingNextPage ?? false)
       : isFetchingNextPage,
   });
 
@@ -119,7 +122,7 @@ const Nav = ({
       <div
         data-testid="nav"
         className={
-          'nav active max-w-[320px] flex-shrink-0 overflow-x-hidden bg-surface-primary-alt md:max-w-[260px]'
+          'nav active max-w-[320px] flex-shrink-0 overflow-x-hidden md:max-w-[260px]'
         }
         style={{
           width: navVisible ? navWidth : '0px',
@@ -127,6 +130,7 @@ const Nav = ({
           transition: 'width 0.2s, visibility 0.2s',
         }}
       >
+        <img src="/assets/marvin-poster.png" alt="Marvin Poster" className="w-full mb-4" />
         <div className="h-full w-[320px] md:w-[260px]">
           <div className="flex h-full min-h-0 flex-col">
             <div
@@ -188,6 +192,16 @@ const Nav = ({
                       <Spinner className={cn('m-1 mx-auto mb-4 h-4 w-4 text-text-primary')} />
                     )}
                   </div>
+                  <div className="menu mb-2 flex justify-center">
+                    <button
+                      onClick={() => setIsMenuSettingsOpen(true)}
+                      className="flex w-full items-center justify-center gap-3 rounded-md px-2 py-2 text-sm text-text-primary hover:bg-surface-hover border border-gray-300"
+                    >
+                      <DataIcon />
+                      {'Explore Our Data'}
+                    </button>
+                  </div>
+                  <MenuSettings open={isMenuSettingsOpen} onOpenChange={setIsMenuSettingsOpen} />
                   <AccountSettings />
                 </nav>
               </div>
