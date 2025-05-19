@@ -53,6 +53,7 @@ export const ErrorMessage = ({
       </Suspense>
     );
   }
+  console.log(message, 'testMessage');
   return (
     <Container message={message}>
       <div
@@ -82,6 +83,7 @@ const DisplayMessage = ({ text, isCreatedByUser, message, showCursor }: TDisplay
   );
 
   let content: React.ReactElement;
+  console.log(isCreatedByUser, enableUserMsgMarkdown, text, 'DisplayMessage');
   if (!isCreatedByUser) {
     content = <Markdown content={text} isLatestMessage={isLatestMessage} />;
   } else if (enableUserMsgMarkdown) {
@@ -98,7 +100,7 @@ const DisplayMessage = ({ text, isCreatedByUser, message, showCursor }: TDisplay
           showCursorState && !!text.length ? 'result-streaming' : '',
           'markdown prose message-content dark:prose-invert light w-full break-words',
           isCreatedByUser && !enableUserMsgMarkdown && 'whitespace-pre-wrap',
-          isCreatedByUser ? 'dark:text-gray-20' : 'dark:text-gray-100',
+          isCreatedByUser ? 'dark:text-gray-50' : 'dark:text-gray-100',
         )}
       >
         {content}
