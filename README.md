@@ -170,10 +170,6 @@ After (a) and (b), you should be able to visit the original Nginx page via `http
 - Git clone this repository and checkout to the `custom` branch.
 Follows the section 1.3 to build the docker image and use docker compose to run the container.
 
-Access the file `/etc/nginx/sites-available/default` on Azure VM, I preferbaly using Vi editor. 
-
-Replace the orginal with following contents. Please replace the `yourdomain.com` with your own domain.
-
 ## 3.4. Set up the Nginx for the app
 Access the file `/etc/nginx/sites-available/default` on Azure VM, you can use Vi editor or nano editor.
 
