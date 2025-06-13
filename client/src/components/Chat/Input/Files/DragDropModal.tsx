@@ -50,12 +50,12 @@ const DragDropModal = ({ onOptionSelect, setShowModal, files, isVisible }: DragD
           value: EToolResources.execute_code,
           icon: <TerminalSquareIcon className="icon-md" />,
         });
-      } else if (capability === EToolResources.ocr) {
-        _options.push({
-          label: localize('com_ui_upload_ocr_text'),
-          value: EToolResources.ocr,
-          icon: <FileType2Icon className="icon-md" />,
-        });
+      // } else if (capability === EToolResources.ocr) {
+      //   _options.push({
+      //     label: localize('com_ui_upload_ocr_text'),
+      //     value: EToolResources.ocr,
+      //     icon: <FileType2Icon className="icon-md" />,
+      //   });
       }
     }
 
